@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050814"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <!-- Header Titles -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PIGEON UPLINK"
+        android:textColor="#00FF33"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ESP32 LoRa Mesh Interface"
+        android:textColor="#4A84E8"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"/>
+
+    <!-- QR Scanner Viewport -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scannerContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_scanner"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
+        android:layout_marginTop="32dp">
+
+        <View
+            android:id="@+id/offlineCircle"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/circle_offline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.45"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCANNER OFFLINE"
+            android:textColor="#60708D"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            app:layout_constraintTop_toBottomOf="@id/offlineCircle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Network Log Section -->
+    <TextView
+        android:id="@+id/tvLogLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NETWORK LOG:"
+        android:textColor="#4A84E8"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        app:layout_constraintTop_toBottomOf="@id/scannerContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- Log Console Container -->
+    <ScrollView
+        android:id="@+id/logContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_log"
+        app:layout_constraintTop_toBottomOf="@id/tvLogLabel"
+        app:layout_constraintBottom_toTopOf="@id/btnInitialize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:padding="16dp"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tvLogText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STANDBY..."
+            android:textColor="#00FF33"
+            android:textSize="14sp"
+            android:fontFamily="monospace"/>
+    </ScrollView>
+
+    <!-- Bottom Initialize Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnInitialize"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="INITIALIZE SCANNER"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:background="@drawable/bg_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
